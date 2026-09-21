@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Historia | Tuna UNI</title>
+
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/styles.css">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <script src="js/header.js" defer></script>
+
+  <style>
+    /* ==================== TIMELINE STYLES ==================== */
+    .timeline-container {
+      padding: 3rem 1rem 2.8rem;
+      background: #f7f7f8;
+    }
+
+    .timeline-wrapper {
+      max-width: 1120px;
+      margin: 0 auto;
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(250px, 1fr));
+      gap: 1.25rem 2rem;
+      align-items: start;
+      padding: 0.5rem 0;
+    }
+
+    .timeline-wrapper::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      width: 2px;
+      height: calc(100% - 1rem);
+      background: rgba(133, 1, 1, 0.28);
+      transform: translateX(-50%);
+    }
+
+    .timeline-year {
+      position: relative;
+      display: flex;
+      min-height: 100%;
+      opacity: 0;
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+
+    .timeline-year.visible {
+      opacity: 1;
+    }
+
+    .timeline-year:nth-child(odd) {
+      justify-content: flex-end;
+      padding-right: 1.25rem;
+      margin-top: 0.45rem;
+      text-align: right;
+    }
+
+    .timeline-year:nth-child(even) {
+      justify-content: flex-start;
+      margin-top: 0;
+      text-align: left;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      top: 2rem;
+      width: 11px;
+      height: 11px;
+      background: var(--primary-color);
+      border: 2px solid #fff;
+      border-radius: 50%;
+      z-index: 2;
+      box-shadow: 0 0 0 1px rgba(133, 1, 1, 0.18);
+    }
+
+    .timeline-year:nth-child(odd) .timeline-dot {
+      right: -21px;
+    }
+
+    .timeline-year:nth-child(even) .timeline-dot {
+      left: -21px;
+    }
+
+    .timeline-content {
+      position: relative;
+      width: min(100%, 500px);
+      background: #fff;
+      padding: 1.35rem 1.6rem 1.25rem;
+      border-radius: 12px;
+      border: 1px solid #d9d9de;
+      box-shadow: 0 5px 10px rgba(26, 26, 26, 0.1);
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+    }
+
+    .timeline-content:hover {
+      box-shadow: 0 9px 18px rgba(26, 26, 26, 0.13);
+      transform: translateY(-2px);
+    }
+
+    .timeline-meta {
+      display: flex;
+      align-items: center;
+      display: block;
+      margin-bottom: 0.7rem;
+    }
+
+    .timeline-badge {
+      display: none;
+    }
+
+    .timeline-year h3 {
+      color: var(--primary-color);
+      font-size: 2rem;
+      margin: 0;
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--primary-color);
+    }
+
+    .timeline-events {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .timeline-events li {
+      position: relative;
+      padding: 0.25rem 0;
+      color: #526987;
+      font-size: 1rem;
+      line-height: 1.65;
+    }
+
+    .timeline-events li:last-child {
+      border-bottom: none;
+    }
+
+    .history-banner {
+      width: min(1180px, calc(100% - 2rem));
+      min-height: 130px;
+      margin: 1rem auto 0;
+      padding: 0.8rem 1rem;
+      background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      border-radius: 18px;
+      box-shadow: 0 10px 18px rgba(84, 16, 16, 0.18);
+    }
+
+    .history-banner h1 {
+      margin: 0;
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      font-weight: 700;
+    }
+
+    .history-banner p {
+      max-width: 760px;
+      margin: 0.45rem auto 0;
+      color: rgba(255, 255, 255, 0.92);
+      font-size: 0.92rem;
+      line-height: 1.45;
+    }
+
+    .history-hero-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      color: white;
+    }
+
+    .history-hero-content h1 {
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      margin: 0;
+      color: white;
+    }
+
+    .history-hero-content p {
+      display: block;
+    }
+
+    .timeline-image {
+      margin-top: 1rem;
+      border-radius: 8px;
+      overflow: hidden;
+      max-width: 200px;
+    }
+
+    .timeline-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ==================== RESPONSIVE ==================== */
+    @media (max-width: 768px) {
+      .timeline-wrapper {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .timeline-wrapper::before {
+        left: 1rem;
+        width: 2px;
+      }
+
+      .timeline-year,
+      .timeline-year:nth-child(odd),
+      .timeline-year:nth-child(even) {
+        grid-column: 1;
+        width: 100%;
+        padding-left: 2.8rem;
+        padding-right: 0;
+        margin-top: 0;
+        text-align: left;
+      }
+
+      .timeline-dot {
+        left: 1rem;
+        right: auto !important;
+        transform: translateX(-50%);
+      }
+
+      .timeline-content {
+        padding: 1.25rem 1.35rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header dinámico -->
+  <div class="header-placeholder"></div>
+
+  <!-- Banner de página -->
+  <div class="history-banner">
+    <div class="history-hero-content">
+      <h1>Nuestra Historia</h1>
+      <p>Desde 1997, la Tuna de la Universidad Nacional de Ingeniería ha sido un símbolo vivo de tradición, alegría y excelencia musical universitaria. Acompáñanos en este viaje por nuestros momentos más memorables.</p>
+    </div>
+  </div>
+
+  <!-- Página de Historia -->
+  <section class="timeline-container">
+    <div class="container">
+      <div class="timeline-wrapper" id="timeline">
+        <!-- Los años se cargarán dinámicamente aquí -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p style="margin-bottom: 0.5rem;">&copy; 2025 Tuna de la UNI</p>
+      <p style="font-size: 0.9rem; color: var(--accent-gold);">Tradición, Alegría y Música Universitaria</p>
+    </div>
+  </footer>
+
+  <script>
+    // Datos del timeline
+    const eventos = {
+      1997: ["Fundación de la Tuna UNI el 19 de julio en la facultad de Ingeniería Civil.", "Participación en el V Encuentro Nacional de Tunas Universitarias (Tacna)."],
+      2001: ["Primera gira internacional a Portugal.", "Reconocimiento por excelencia musical en festivales internacionales."],
+      2008: ["Nace la Tuna de las Américas y se fortalece la identidad de la agrupación.", "Ascenso de Carty durante FITUNI."],
+      2011: ["I Encuentro Nacional de Tunas - Las Américas.", "Ascenso de Sajino, Pato, Iluso y otros tunos emblemáticos."],
+      2015: ["Festival de Tunas Universitarias y XXIII aniversario de la Tuna UNI.", "Encuentro Garcilaso y consolidación de la tradición universitaria."],
+      2024: ["II Certamen Universitario 2023: Mejor Tuna, Mejor Baile de Capa y Mejor Baile de Pandereta.", "Consolidación como una de las tunas más premiadas del Perú."],
+      2026: ["Participacion en el Certmen Internacional de Tunas en Arequipa", "Mejor Solista, Mejor bailde de pandero, mejor baile de bandera."],
+    };
+
+    const timelineContainer = document.getElementById('timeline');
+    const years = Object.keys(eventos).map(Number).sort((a, b) => a - b);
+
+    // Crear elementos del timeline
+    years.forEach(year => {
+      const yearDiv = document.createElement('div');
+      yearDiv.className = 'timeline-year';
+      
+      const dot = document.createElement('div');
+      dot.className = 'timeline-dot';
+      
+      const content = document.createElement('div');
+      content.className = 'timeline-content';
+      
+      content.innerHTML = `
+        <div class="timeline-meta">
+          <div class="timeline-badge">✦</div>
+          <h3>${year}</h3>
+        </div>
+        <ul class="timeline-events">
+          ${eventos[year].map(evento => `<li>${evento}</li>`).join('')}
+        </ul>
+      `;
+      
+      yearDiv.appendChild(dot);
+      yearDiv.appendChild(content);
+      timelineContainer.appendChild(yearDiv);
+    });
+
+    // Observer para animación al hacer scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.timeline-year').forEach(year => {
+      observer.observe(year);
+    });
+  </script>
+</body>
+</html>
