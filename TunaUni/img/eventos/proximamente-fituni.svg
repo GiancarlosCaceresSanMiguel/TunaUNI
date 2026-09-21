@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
-  <title id="title">FITUNI proximamente</title>
-  <desc id="desc">Aviso de FITUNI proximamente</desc>
-  <rect width="1200" height="700" fill="#850101"/>
-  <circle cx="1000" cy="120" r="250" fill="#c9a227" opacity=".25"/>
-  <circle cx="170" cy="620" r="310" fill="#5c0000" opacity=".65"/>
-  <text x="600" y="285" fill="#fff" font-family="Georgia, serif" font-size="86" font-weight="700" text-anchor="middle">FITUNI</text>
-  <text x="600" y="390" fill="#e6c85d" font-family="Arial, sans-serif" font-size="52" font-weight="700" text-anchor="middle">PROXIMAMENTE</text>
-</svg>
