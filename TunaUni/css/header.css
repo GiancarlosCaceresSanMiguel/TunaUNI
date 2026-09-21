@@ -1,0 +1,279 @@
+/* header.css - Estilos del header mejorado */
+:root {
+  --primary-color: #850101;
+  --primary-dark: #5c0000;
+  --accent-gold: #c9a227;
+  --text-light: #ddd;
+  --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --radius-md: 12px;
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* ==================== HEADER PRINCIPAL ==================== */
+.modern-header {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+  color: #fff;
+  padding: 1rem 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: var(--transition);
+  border-bottom: 3px solid var(--primary-color);
+}
+
+.modern-header.scrolled {
+  padding: 0.7rem 0;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+}
+
+.modern-header .container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+}
+
+/* ==================== LOGO ==================== */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  text-decoration: none;
+}
+
+.logo a {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  text-decoration: none;
+  color: white;
+}
+
+.logo-img {
+  max-height: 62px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+  transition: var(--transition);
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.25));
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.logo-img:hover {
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.5));
+}
+
+.logo a span {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--accent-gold);
+  letter-spacing: 0.5px;
+}
+
+/* ==================== NAVEGACIÓN ==================== */
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--text-light);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  position: relative;
+  transition: color 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.nav-links a::before {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(to right, var(--accent-gold), var(--primary-color));
+  transition: width 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  border-radius: 3px;
+}
+
+.nav-links a:hover {
+  color: var(--accent-gold);
+}
+
+.nav-links a:hover::before {
+  width: 100%;
+}
+
+/* ==================== MENÚ HAMBURGUESA ==================== */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: var(--transition);
+}
+
+.menu-toggle .bar {
+  width: 28px;
+  height: 3px;
+  background: var(--accent-gold);
+  border-radius: 3px;
+  transition: var(--transition);
+}
+
+.menu-toggle.open .bar:nth-child(1) {
+  transform: rotate(45deg) translate(10px, 10px);
+}
+
+.menu-toggle.open .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.open .bar:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -8px);
+}
+
+/* ==================== RESPONSIVE MOBILE ==================== */
+@media (max-width: 768px) {
+  .modern-header .container {
+    height: 60px;
+    padding: 0 1rem;
+  }
+
+  .logo a span {
+    font-size: 1.1rem;
+  }
+
+  .logo-img {
+    max-height: 48px;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 60px;
+    left: -100%;
+    width: 100%;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0;
+    padding: 2rem 0;
+    transition: left 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: 999;
+    max-height: calc(100vh - 60px);
+    overflow-y: auto;
+  }
+
+  .nav-links.open {
+    left: 0;
+  }
+
+  .nav-links a {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 1px solid rgba(201, 162, 39, 0.2);
+    color: var(--text-light);
+    transition: var(--transition);
+  }
+
+  .nav-links a::before {
+    display: none;
+  }
+
+  .nav-links a:hover {
+    background: rgba(201, 162, 39, 0.1);
+    color: var(--accent-gold);
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+}
+
+@media (max-width: 480px) {
+  .modern-header .container {
+    height: 55px;
+  }
+
+  .logo a span {
+    font-size: 1rem;
+  }
+
+  .menu-toggle .bar {
+    width: 25px;
+    height: 2.5px;
+  }
+}
+
+/* ==================== INTEGRANTES - CARDS MEJORADAS ==================== */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+.card {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: var(--transition);
+  border: 2px solid transparent;
+  border-top: 4px solid var(--primary-color);
+  text-align: center;
+  padding: 0;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--accent-gold);
+}
+
+.card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+  transition: var(--transition);
+}
+
+.card:hover img {
+  transform: scale(1.08);
+}
+
+.card .description {
+  padding: 1.5rem;
+}
+
+.card h3 {
+  margin: 0.5rem 0 0.3rem;
+  color: var(--primary-color);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.card p {
+  margin: 0;
+  color: var(--accent-gold);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
