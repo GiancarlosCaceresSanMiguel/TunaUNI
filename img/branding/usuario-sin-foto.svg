@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-labelledby="title desc">
+  <title id="title">Usuario sin foto</title>
+  <desc id="desc">Silueta gris de una persona</desc>
+  <rect width="600" height="600" fill="#e7e7e7"/>
+  <circle cx="300" cy="205" r="105" fill="#9a9a9a"/>
+  <path d="M110 535c12-128 87-192 190-192s178 64 190 192H110Z" fill="#9a9a9a"/>
+</svg>
