@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Integrantes | Tuna UNI</title>
+  
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/styles.css">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <script src="js/header.js" defer></script>
+
+  <style>
+/* ==========================================================================
+   1. VARIABLES GLOBALES Y ESTILOS BASE
+   ========================================================================== */
+:root {
+  --primary-color: #541010;       /* Rojo vino institucional */
+  --primary-dark: #320707;        /* Rojo oscuro */
+  --accent-gold: #a48c6f;         /* Oro viejo para líneas y detalles */
+  --bg-crema: #fdfaf4;            /* Fondo estilo pergamino */
+  --text-dark: #2b2520;
+  --text-light: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: var(--bg-crema);
+  color: var(--text-dark);
+}
+
+/* ==========================================================================
+   2. SECCIÓN "NUESTROS INTEGRANTES" (Tu Grilla de Tarjetas Original)
+   ========================================================================== */
+#integrantes {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 22px 16px 12px;
+}
+
+#integrantes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  padding: 10px 0;
+}
+
+.card {
+  position: relative;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(164, 140, 111, 0.2);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.founder-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  background: linear-gradient(135deg, #f4d35e, #d4af37);
+  color: #2a1a00;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.6rem;
+  border-radius: 999px;
+  box-shadow: 0 3px 8px rgba(212, 175, 55, 0.3);
+}
+
+.card img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  background-color: #eee;
+}
+
+.card .description {
+  padding: 12px 12px 10px;
+  text-align: center;
+}
+
+.card .card-number {
+  font-size: 0.72rem;
+  color: var(--accent-gold);
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.card h3 {
+  font-size: 0.96rem;
+  color: var(--primary-color);
+  margin-bottom: 3px;
+}
+
+.card p {
+  font-size: 0.76rem;
+  color: #666;
+  font-style: italic;
+}
+
+/* Tarjeta Distintiva para Fundadores en la Grilla */
+.card.founder {
+  border: 2px solid var(--accent-gold);
+  background: linear-gradient(to bottom, #ffffff, #fffdf9);
+}
+
+/* ==========================================================================
+   3. BOTÓN PRINCIPAL (Para ir al Árbol)
+   ========================================================================== */
+.integrantes-banner {
+  width: min(1180px, calc(100% - 2rem));
+  margin: 1rem auto 0;
+  position: relative;
+  padding: 0.7rem 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  border-radius: 18px;
+  box-shadow: 0 10px 18px rgba(84, 16, 16, 0.18);
+}
+
+.integrantes-banner h1 {
+  width: 100%;
+  text-align: center;
+  font-size: clamp(1.8rem, 3.4vw, 2.5rem);
+  color: white;
+  margin: 0;
+  letter-spacing: 0.02em;
+}
+
+.btn-back {
+  display: none;
+  position: absolute;
+  left: 1.2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  color: white;
+  padding: 0.7rem 1rem;
+  border-radius: 999px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-back:hover {
+  background: rgba(255, 255, 255, 0.18);
+  transform: translateY(-50%) translateX(-2px);
+}
+
+.banner-spacer {
+  display: none;
+}
+
+.view-toggle {
+  max-width: 1200px;
+  margin: 0 auto 12px;
+  padding: 1.2rem 20px 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+#btn-ver-arbol {
+  display: inline-block;
+  margin: 0;
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  border: none;
+  padding: 12px 28px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(84, 16, 16, 0.2);
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+#btn-ver-arbol:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+
+/* ==========================================================================
+   4. ESTRUCTURA Y CONTENEDORES GENERALES DEL ÁRBOL
+   ========================================================================== */
+#arbol-genealogico {
+  width: 100%;
+  padding: 20px;
+  background-color: #f8f5ee;
+}
+
+.poster-frame {
+  background: white;
+  border: 2px double var(--accent-gold);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  overflow: auto;
+}
+
+.poster-header {
+  width: max-content;
+  min-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  margin-bottom: 25px;
+  border-bottom: 1px dashed var(--accent-gold);
+  padding-bottom: 15px;
+}
+
+.poster-header h2 {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--primary-color);
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+}
+
+.poster-header p {
+  color: #666;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+/* Panel de mandos internos del árbol */
+.tree-controls {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  position: sticky;
+  left: 0;
+  z-index: 10;
+}
+
+.tree-controls button {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  border: none;
+  padding: 6px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.tree-controls button:hover {
+  background-color: var(--primary-dark);
+}
+
+/* ==========================================================================
+   5. MOTOR FLEX HORIZONTAL COMPACTO (Estructura de Ramas)
+   ========================================================================== */
+#canvas-arbol-lineal {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 26px;
+  padding: 30px 10px;
+  width: max-content;
+  margin: 0 auto;
+  transform-origin: top center;
+  transition: transform 0.25s ease-out;
+}
+
+.lineage-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.node-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+/* Alinea a los hermanos estrictamente en la misma fila horizontal */
+.children-container {
+  display: flex;
+  flex-direction: row; 
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  padding-top: 16px;
+  gap: 8px;
+}
+
+
+/* ==========================================================================
+   6. SISTEMA DE LÍNEAS CONECTORAS MINIATURA (_______|_______)
+   ========================================================================== */
+
+/* Conector vertical que baja del Padrino */
+.node-group:has(.children-container) > .poster-node::after {
+  content: '';
+  position: absolute;
+  bottom: -16px; 
+  left: 50%;
+  width: 2px;
+  height: 16px;
+  background-color: var(--accent-gold);
+  z-index: 1;
+}
+
+/* Conector vertical que ingresa al Ahijado */
+.children-container > .node-group::before {
+  content: '';
+  position: absolute;
+  top: -16px;
+  left: 50%;
+  width: 2px;
+  height: 16px;
+  background-color: var(--accent-gold);
+  z-index: 1;
+}
+
+/* Barra horizontal general de enlace fraterno */
+.children-container > .node-group::after {
+  content: '';
+  position: absolute;
+  top: -16px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--accent-gold);
+  z-index: 1;
+}
+
+/* Ajustes marginales para limpiar los extremos de la barra horizontal */
+.children-container > .node-group:first-child::after {
+  left: 50%;
+  width: 50%;
+}
+
+.children-container > .node-group:last-child::after {
+  width: 50%;
+}
+
+/* Si es hijo único, se anula la barra extendida horizontal */
+.children-container > .node-group:only-child::after {
+  display: none;
+}
+
+
+/* ==========================================================================
+   7. ESTILIZACIÓN ULTRA-COMPACTA DE LOS NODOS DEL ÁRBOL
+   ========================================================================== */
+.poster-node {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  padding: 4px 10px 4px 4px;
+  border-radius: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  border: 1px solid rgba(164, 140, 111, 0.3);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  z-index: 5;
+  min-width: 120px;
+  margin: 5px 0;
+}
+
+.poster-node:hover {
+  transform: scale(1.04);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  border-color: var(--primary-color);
+}
+
+.node-circle {
+  width: 32px;  
+  height: 32px; 
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1.5px solid var(--accent-gold);
+  background-color: #eaeaea;
+  flex-shrink: 0;
+}
+
+.node-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.node-ribbon {
+  margin-left: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1.2;
+}
+
+.node-num {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--accent-gold);
+}
+
+.node-name {
+  font-size: 0.82rem; 
+  font-weight: 600;
+  color: var(--primary-color);
+  white-space: nowrap;
+}
+
+/* Nodo VIP para los 4 Fundadores Reales dentro del Árbol */
+.poster-node.is-founder {
+  border: 1.5px solid var(--accent-gold);
+  background: linear-gradient(135deg, #ffffff, #fffaf2);
+}
+
+.poster-node.is-founder .node-name {
+  font-weight: 700;
+  color: var(--primary-dark);
+}
+
+
+/* ==========================================================================
+   8. RAMAS INDEPENDIENTES (Aislados del Flujo Principal)
+   ========================================================================== */
+.unconnected-column {
+  border-left: 1.5px dashed var(--accent-gold);
+  padding-left: 25px;
+  margin-left: 15px;
+  display: flex;
+  flex-direction: column; 
+  gap: 15px;
+}
+
+.unconnected-column > .node-group::before,
+.unconnected-column > .node-group::after,
+.unconnected-column > .node-group > .poster-node::after {
+  display: none !important;
+}
+
+
+/* ==========================================================================
+   9. VENTANA MODAL DE DETALLES
+   ========================================================================== */
+.modal-integrante {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(30, 25, 20, 0.5);
+  backdrop-filter: blur(3px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.modal-integrante.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-integrante-content {
+  background: white;
+  width: 100%;
+  max-width: 420px;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  border: 1px solid var(--accent-gold);
+  transform: scale(0.92);
+  transition: transform 0.25s cubic-bezier(0.34, 1.4, 0.64, 1);
+}
+
+.modal-integrante.show .modal-integrante-content {
+  transform: scale(1);
+}
+
+.modal-integrante-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font-size: 1.3rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.modal-integrante-photo {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-bottom: 3px solid var(--accent-gold);
+}
+
+.modal-integrante-body {
+  padding: 20px;
+  text-align: center;
+}
+
+.modal-integrante-body h2 {
+  color: var(--primary-color);
+  font-size: 1.6rem;
+  margin-bottom: 2px;
+}
+
+.modal-integrante-body .nombre-real {
+  font-size: 0.95rem;
+  color: #666;
+  font-style: italic;
+  margin-bottom: 15px;
+}
+
+.modal-integrante-info {
+  background-color: #faf8f4;
+  border-radius: 6px;
+  padding: 12px;
+  border: 1px solid rgba(164, 140, 111, 0.15);
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+  font-size: 0.9rem;
+}
+
+.info-row:last-child {
+  border-bottom: none;
+}
+
+.info-row label {
+  font-weight: bold;
+  color: var(--primary-dark);
+}
+
+.info-row span {
+  color: #333;
+}
+</style>
+</head>
+
+<body>
+  <!-- Header dinámico -->
+  <div class="header-placeholder"></div>
+
+  <!-- Banner -->
+  <div class="integrantes-banner">
+    <button id="btn-back-page" class="btn-back" type="button" aria-label="Volver a la página anterior">← Volver</button>
+    <h1>Nuestros Integrantes</h1>
+    <div class="banner-spacer" aria-hidden="true"></div>
+  </div>
+
+  <!-- Botón para cambiar vista -->
+  <div class="view-toggle">
+    <button id="btn-ver-arbol" class="btn-toggle">Ver Árbol Genealógico</button>
+  </div>
+
+  <!-- Sección de integrantes -->
+  <section id="integrantes" class="integrantes-container">
+    <h2>Conoce a los tunos</h2>
+    <div class="integrantes-desc">
+      <p style="font-size: 1rem; margin-top: 0.25rem;">En cada uno de nuestros integrantes vive el verdadero espíritu de la Tuna UNI: una hermandad unida por el ingenio de la ciencia, la pasión por el buen cantar, la lealtad inquebrantable y el orgullo de salvaguardar nuestra rica herencia universitaria.</p> 
+    </div>
+
+    <div class="card-grid" id="integrantes-grid">
+      <!-- Las cards se cargarán dinámicamente aquí -->
+    </div>
+
+    <div class="integrantes-count">
+      <h3>La Tuna UNI en Números</h3>
+      <p>49 Tunos | 27+ años | Tradición viva</p>
+    </div>
+  </section>
+
+ <!-- Árbol Genealógico Estilo Póster -->
+  <section id="arbol-genealogico" style="display: none;">
+    <div class="arbol-container">
+      <!-- Botones de control de tamaño -->
+      <div class="tree-controls">
+        <button type="button" onclick="adjustZoom(0.1)">+</button>
+        <button type="button" onclick="adjustZoom(-0.1)">−</button>
+      </div>
+
+      <!-- Cuadro físico simulado -->
+      <div class="poster-frame">
+        <div class="poster-header">
+          <h2>Árbol Genealógico de la Tuna Ingeniería</h2>
+          <p>Universidad Nacional de Ingeniería</p>
+        </div>
+
+        <!-- Aquí el JS pintará los 5 linajes en columnas -->
+        <div class="tree-grid-canvas" id="canvas-arbol-lineal"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p style="margin-bottom: 0.5rem;">&copy; 2025 Tuna de la UNI</p>
+      <p style="font-size: 0.9rem; color: var(--accent-gold);">Tradición, Alegría y Música Universitaria</p>
+    </div>
+  </footer>
+
+  <!-- Modal para ver detalles del integrante -->
+  <div class="modal-integrante" id="modal-integrante">
+    <div class="modal-integrante-content">
+      <button class="modal-integrante-close" onclick="closeIntegranteModal()">✕</button>
+      <img id="modal-photo" class="modal-integrante-photo" src="" alt="">
+      <div class="modal-integrante-body">
+        <h2 id="modal-nombre"></h2>
+        <p class="nombre-real" id="modal-real"></p>
+        <div class="modal-integrante-info">
+          <div class="info-row">
+            <label>R.O.A.</label>
+            <span id="modal-roa"></span>
+          </div>
+          <div class="info-row">
+            <label>Fecha de Nacimiento</label>
+            <span id="modal-nacimiento"></span>
+          </div>
+          <div class="info-row">
+            <label>Fecha de Ascenso</label>
+            <span id="modal-ascenso"></span>
+          </div>
+          <div class="info-row">
+            <label>Padrino</label>
+            <span id="modal-padrino"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Directorio oficial de integrantes de la Tuna UNI sincronizado con el Excel
+    const integrantes = [
+      { num: 1, nombre: 'ULTRA SIETE', real: 'César Elias Rondón Arnao', carrera: 'Ingeniería Química', nacimiento: '08 de julio de 1974', ascenso: '08 de julio de 1974', padrino: 'LOCUAZ', img: 'img/branding/usuario-sin-foto.svg', founder: true },
+      { num: 2, nombre: 'GAZÚ', real: 'Marco Alberto Rodríguez Paz', carrera: 'Ingeniería Civil', nacimiento: '02 de enero', ascenso: '02 de enero', padrino: 'MELMAC', img: 'img/integrantes/2-Gazu.jpg', founder: true },
+      { num: 3, nombre: 'PERRO DEL HORTELANO', real: 'Jose Antonio Bellido Delgado', carrera: 'Ingeniería Civil', nacimiento: '03 de septiembre de 1975', ascenso: '03 de septiembre de 1975', padrino: 'CARLONCHO', img: 'img/integrantes/3-Perro del Hortelano.jpg', founder: true },
+      { num: 4, nombre: 'GARFIELD', real: 'Juan Carlos Navarro Portugal', carrera: 'Ingeniería Civil', nacimiento: '23 de febrero de 1977', ascenso: '23 de febrero de 1977', padrino: 'ARRIGO', img: 'img/integrantes/4-Garfield.jpg', founder: true },
+      { num: 5, nombre: 'CHARLY', real: 'Carlos Alejandro Gonzales Chávez', carrera: 'Física', nacimiento: '26 de mayo', ascenso: '26 de mayo', padrino: 'PERRO DEL HORTELANO', img: 'img/integrantes/5-Charly.jpg' },
+      { num: 6, nombre: 'CARLONCHO', real: 'Carlos Oliva Guevara', carrera: 'Ingeniería Mecánica', nacimiento: '29 de junio de 1969', ascenso: '29 de junio de 1969', padrino: null, img: 'img/integrantes/6-Carloncho.jpg'},
+      { num: 7, nombre: 'THERAFLÚ', real: 'Andrés Aníbal Preciado Elorriaga', carrera: 'Ingeniería de Petróleo', nacimiento: '26 de junio 1974', ascenso: '26 de junio 1974', padrino: 'PERRO DEL HORTELANO', img: 'img/integrantes/7-Theraflu.jpg' },
+      { num: 8, nombre: 'LOBITO', real: 'René Gustavo Galdós Paz', carrera: 'Ingeniería Química', nacimiento: '04 de Dicembre de 1976', ascenso: '04 de Dicembre de 1976', padrino: 'ULTRA SIETE', img: 'img/integrantes/8-Lobito.jpg' },
+      { num: 9, nombre: 'CHICHI', real: 'José Antonio Gómez Zegarra', carrera: 'Ingeniería Petroquímica', nacimiento: '11 de septiembre de 1977', ascenso: '11 de septiembre de 1977', padrino: 'GARFIELD', img: 'img/integrantes/9-Chichi.jpg' },
+      { num: 10, nombre: 'LOCO', real: 'Julio Enrique Alarcón Alvarado', carrera: 'Ingeniería Física e Ing. Geológica', nacimiento: '2 de diciembre de 1979', ascenso: '2 de diciembre de 1979', padrino: 'GAZÚ', img: 'img/integrantes/10-Loco.jpg' },
+      { num: 11, nombre: 'HUEVO DURO', real: 'Carlos Alberto Daga Ramón', carrera: 'Ingeniería Civil', nacimiento: '19 de Agosto de 1980', ascenso: '19 de Agosto de 1980', padrino: 'PERRO DEL HORTELANO', img: 'img/integrantes/11-Huevo Duro.jpg' },
+      { num: 12, nombre: 'CHUNCHO', real: 'Paul Eduardo Carpio Vicuña', carrera: 'Ingeniería Petroquímica', nacimiento: '08 de Octubre de 1978', ascenso: '08 de Octubre de 1978', padrino: 'CHARLY', img: 'img/integrantes/12-Chuncho.jpg' },
+      { num: 13, nombre: 'MUKI', real: 'Jesús Isaias García Aranda', carrera: 'Ingeniería Mecánica', nacimiento: '07 de Agosto de 1980', ascenso: '07 de Agosto de 1980', padrino: 'CHUNCHO', img: 'img/integrantes/13-Muki.jpg' },
+      { num: 14, nombre: 'SIROCOTOPO', real: 'Roberto Carlos Samaniego Salcedo', carrera: 'Ingeniería Estadística', nacimiento: '21 de Mayo de 1979', ascenso: '21 de Mayo de 1979', padrino: 'HUEVO DURO', img: 'img/integrantes/14-Sirocotopo.jpg' },
+      { num: 15, nombre: 'PSYDUCK', real: 'Juan Francisco Silva Vera', carrera: 'Ingeniería Mecatrónica', nacimiento: '22 de diciembre de 1981', ascenso: '22 de diciembre de 1981', padrino: 'LOBITO', img: 'img/branding/usuario-sin-foto.svg' },
+      { num: 16, nombre: 'RAMITRO', real: 'Ramiro Guillermo Castro Ochoa', carrera: 'Ingeniería Civil', nacimiento: '19 de septiembre de 1981', ascenso: '19 de septiembre de 1981', padrino: 'GARFIELD', img: 'img/branding/usuario-sin-foto.svg' },
+      { num: 17, nombre: 'FRANKY', real: 'Ricardo Werner Yauri Cedeño', carrera: 'Ingeniería Civil', nacimiento: '16 de noviembre de 1984', ascenso: '16 de noviembre de 1984', padrino: 'MUKI', img: 'img/integrantes/17-Franky.jpg' },
+      { num: 18, nombre: 'DENDÉ', real: 'Carlos Alberto Layseca García', carrera: 'Ingeniería Química', nacimiento: '31 de agosto de 1980', ascenso: '31 de agosto de 1980', padrino: 'CHUNCHO', img: 'img/integrantes/18-Dende.jpg' },
+      { num: 19, nombre: 'GALGO', real: 'Oswaldo Javier Nanfuñay Lora', carrera: 'Ingenieria Mecánica Eléctrica', nacimiento: '17 de septiembre de 1982', ascenso: '17 de septiembre de 1982', padrino: 'CHUNCHO', img: 'img/integrantes/19-Galgo.jpg' },
+      { num: 20, nombre: 'PENDIENTE', real: 'Jaime Ernesto Cuba Condori', carrera: 'Ingeniería Química', nacimiento: '21 de febrero de 1984', ascenso: '21 de febrero de 1984', padrino: 'HUEVO DURO', img: 'img/integrantes/20-Pendiente.jpg' },
+      { num: 21, nombre: 'CARTY', real: 'David José Guzmán Flores', carrera: 'Ingeniería Química', nacimiento: '10 de abril de 1987', ascenso: '10 de abril de 1987', padrino: 'MUKI', img: 'img/integrantes/21-Carty.jpg' },
+      { num: 22, nombre: 'YON YON', real: 'Jhon Freddy Vargas Reyes', carrera: 'Ingeniería Electrónica', nacimiento: '6 de agosto', ascenso: '6 de agosto', padrino: 'CHUNCHO', img: 'img/integrantes/22-Yon Yon.jpg' },
+      { num: 23, nombre: 'CHORRI', real: 'Peter Harry Halire Yucra', carrera: 'Ingeniería Mecánica', nacimiento: '15 de marzo de 1985', ascenso: '15 de marzo de 1985', padrino: 'HUEVO DURO', img: 'img/integrantes/23-Chorry.jpg' },
+      { num: 24, nombre: 'SAJINO', real: 'Yuri Karol Max Páucar Aguirre', carrera: 'Matemática', nacimiento: '26 de mayo de 1986', ascenso: '26 de mayo de 1986', padrino: 'CHUNCHO', img: 'img/branding/usuario-sin-foto.svg' },
+      { num: 25, nombre: 'PATO', real: 'Patricio Jesús Alarcón Delgado', carrera: 'Ingeniería Metalúrgica', nacimiento: '21 de enero de 1989', ascenso: '21 de enero de 1989', padrino: 'MUKI', img: 'img/integrantes/25-Pato.jpg' },
+      { num: 26, nombre: 'ILUSO', real: 'David Christian Caqui Alfaro', carrera: 'Ingeniería Civil', nacimiento: '21 de julio (Sin mencion)', ascenso: '21 de julio (Sin mencion)', padrino: 'CHUNCHO', img: 'img/integrantes/26-Iluso.jpg' },
+      { num: 27, nombre: 'PARCHÍS', real: 'Daniel Eduardo Luque Cuestas', carrera: 'Ingeniería Económica', nacimiento: '29 de octubre de 1987', ascenso: '29 de octubre de 1987', padrino: 'LOBITO', img: 'img/integrantes/27-Parchis.jpg' },
+      { num: 28, nombre: 'COQUETA', real: 'Rafael Anderson Vargas Sotomayor', carrera: 'Ingeniería Económica', nacimiento: '1 de mayo', ascenso: '1 de mayo', padrino: 'CHUNCHO', img: 'img/integrantes/28-Coqueta.jpg' },
+      { num: 29, nombre: 'FASHION', real: 'Francisco José Nuñez Mateo', carrera: 'Ingeniería Naval', nacimiento: '19 de junio de 1990', ascenso: '19 de junio de 1990', padrino: 'CHORRI', img: 'img/integrantes/29-Fashion.jpg' },
+      { num: 30, nombre: 'TAO PAI PAI', real: 'Edison Calle Anchayhua', carrera: 'Ingeniería Mecatrónica', nacimiento: '07 de diciembre', ascenso: '07 de diciembre', padrino: 'PARCHÍS', img: 'img/integrantes/30-Tao Pai Pai.jpg' },
+      { num: 31, nombre: 'BENITO', real: 'Luis Ivinson Ochoa Simón', carrera: 'Ingeniería Civil', nacimiento: '21 de diciembre de 1992', ascenso: '21 de diciembre de 1992', padrino: null, img: 'img/integrantes/31-Benito.jpg' },
+      { num: 32, nombre: 'LADILLO', real: 'Miguel Ángel Martín Vadillo Castro-Torres', carrera: 'Ingeniería de Sistemas', nacimiento: '05 de marzo de 1989', ascenso: '05 de marzo de 1989', padrino: 'PERRO DEL HORTELANO', img: 'img/integrantes/32-Ladillo.jpg' },
+      { num: 33, nombre: 'CARPINCHO', real: 'George Dick De la Cruz Rivera', carrera: 'Ingeniería de Petróleo', nacimiento: '14 de agosto 1985', ascenso: '14 de agosto 1985', padrino: 'COQUETA', img: 'img/branding/usuario-sin-foto.svg' },
+      { num: 34, nombre: 'ZOMBIE', real: 'Martín Stevie La Hermoza Jaimes', carrera: 'Arquitectura', nacimiento: '08 de enero de 1994', ascenso: '08 de enero de 1994', padrino: 'PARCHÍS', img: 'img/integrantes/34-Zombie.jpg' },
+      { num: 35, nombre: 'PIROTÉCNICO', real: 'Antony Arturo Quispe Alarcón', carrera: 'Ingeniería Mecánica Eléctrica', nacimiento: '23 de diciembre de 1990', ascenso: '23 de diciembre de 1990', padrino: 'PARCHÍS', img: 'img/integrantes/35-Pirotecnico.jpg' },
+      { num: 36, nombre: 'CHIMOLTRUFIO', real: 'Edward Bryan Luján Contreras', carrera: 'Ingeniería Metalúrgica', nacimiento: '26 de noviembre de 1993', ascenso: '26 de noviembre de 1993', padrino: 'CARPINCHO', img: 'img/integrantes/36-Chimoltrufio.jpg' },
+      { num: 37, nombre: 'JUAN SOLO', real: 'Juan Anthony Albornoz Soto', carrera: 'Ingenieria Civil', nacimiento: '15 de julio', ascenso: '15 de julio', padrino: 'ZOMBIE', img: 'img/integrantes/37-Juan Solo.jpg' },
+      { num: 38, nombre: 'MINION', real: 'Ciro Soto Pardo', carrera: 'Ingenieria Electronica', nacimiento: '15 de abril de 1997', ascenso: '15 de abril de 1997', padrino: 'JUAN SOLO', img: 'img/integrantes/38-Minion.jpg' },
+      { num: 39, nombre: 'SOLDADO', real: 'Brayner Willy Robles Rodríguez', carrera: 'Ingenieria Civil', nacimiento: '24 de julio de 2000', ascenso: '24 de julio de 2000', padrino: 'PATO', img: 'img/integrantes/39-Soldado.jpg' },
+      { num: 40, nombre: 'CAUSHITA', real: 'Héctor Antonio Ventura Espíritu', carrera: 'Ingenieria Ambiental', nacimiento: '19 de octubre de 2001', ascenso: '19 de octubre de 2001', padrino: 'CARPINCHO', img: 'img/integrantes/40-Caushita.jpg' },
+      { num: 41, nombre: 'CELO', real: 'Juan Sebastian Tello León', carrera: 'Matemática', nacimiento: '20 de diciembre de 1999', ascenso: '20 de diciembre de 1999', padrino: 'CARPINCHO', img: 'img/integrantes/41-Celo.jpg' },
+      { num: 42, nombre: 'MEDIO MUERTO', real: 'Joaquín Ignacio García Castillo', carrera: 'Física', nacimiento: '13 de octubre de 1999', ascenso: '13 de octubre de 1999', padrino: 'COQUETA', img: 'img/integrantes/42-Medio Muerto.jpg' },
+      { num: 43, nombre: 'MECHACO', real: 'David Sotelo Astiyaure', carrera: 'Ingeniería de Telecomunicaciones', nacimiento: '28 de noviembre de 1999', ascenso: '28 de noviembre de 1999', padrino: 'LADILLO', img: 'img/branding/usuario-sin-foto.svg' },
+      { num: 44, font: 'CORAJE', nombre: 'CORAJE', real: 'Andrew Owin Inga Rojas', carrera: 'Ciencias de la comp.', nacimiento: '26 de octubre', ascenso: '26 de octubre', padrino: 'MINION', img: 'img/branding/usuario-sin-foto.svg' },
+      { num: 45, nombre: 'MILHOUSE', real: 'Luis Sebastián Ponce Gamboa', carrera: 'Física', nacimiento: '2 de Julio de 2003', ascenso: '2 de Julio de 2003', padrino: 'MINION', img: 'img/branding/usuario-sin-foto.svg' },
+      { num: 46, nombre: 'SHUN DE ANDRÓMEDA', real: 'Jósef André Quilca Castañeda', carrera: 'Ing. Civil', nacimiento: '04 de septiembre del 2003', ascenso: '04 de septiembre del 2003', padrino: 'JUAN SOLO', img: 'img/branding/usuario-sin-foto.svg' },
+      { num: 47, nombre: 'JHON SNOW', real: 'Daniel Adolfo Cabello Vizarres', carrera: 'Física', nacimiento: '21 de Julio de 2006', ascenso: '21 de Julio de 2006', padrino: 'CORAJE', img: 'img/branding/usuario-sin-foto.svg' },
+      { num: 48, nombre: 'LOTSO', real: 'Sebastián Octavio Figueroa Ruedas', carrera: 'Ing. Física', nacimiento: 'Sin mención', ascenso: 'Sin mención', padrino: 'ILUSO', img: 'img/integrantes/48-Lotso.jpg' },
+      { num: 49, nombre: 'BOOMERANG', real: 'Luis Benito Miranda Hazaña', carrera: 'Ing. Civil', nacimiento: '4 de Julio de 2001', ascenso: '4 de Julio de 2001', padrino: 'CHICHI', img: 'img/branding/usuario-sin-foto.svg' }
+    ];
+
+// ==================== LÓGICA DE MODALES ====================
+function openIntegranteModal(integrante) {
+  const modal = document.getElementById('modal-integrante');
+  if (!modal) return;
+  
+  document.getElementById('modal-photo').src = integrante.img;
+  document.getElementById('modal-photo').onerror = function() {
+    this.src = 'img/branding/usuario-sin-foto.svg';
+  };
+  document.getElementById('modal-photo').onerror = function() {
+    this.src = 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=300&h=300&fit=crop';
+  };
+  
+  const fundadoresReales = ['ULTRA SIETE', 'GAZÚ', 'PERRO DEL HORTELANO', 'GARFIELD'];
+  const nombreUpper = (integrante.nombre || '').toUpperCase();
+  const esFundadorReal = fundadoresReales.includes(nombreUpper);
+  const pEfectivo = getPadrinoEfectivo(integrante);
+
+  document.getElementById('modal-nombre').textContent = integrante.nombre;
+  document.getElementById('modal-nacimiento').textContent = integrante.nacimiento || '---';
+  document.getElementById('modal-ascenso').textContent = integrante.ascenso || '---';
+  document.getElementById('modal-real').textContent = integrante.real;
+  document.getElementById('modal-roa').textContent = `#${integrante.num}`;
+  
+  const padrinoCampo = document.getElementById('modal-padrino');
+  if (padrinoCampo) {
+    if (esFundadorReal) {
+      padrinoCampo.textContent = 'Ninguno / Fundador';
+    } else if (!pEfectivo) {
+      padrinoCampo.textContent = 'Ninguno / Línea Independiente';
+    } else {
+      padrinoCampo.textContent = integrante.padrino;
+    }
+  }
+  
+  modal.classList.add('show');
+}
+
+function closeIntegranteModal() {
+  const modal = document.getElementById('modal-integrante');
+  if (modal) modal.classList.remove('show');
+}
+
+function goBackPage() {
+  showGridView();
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  const modal = document.getElementById('modal-integrante');
+  if (modal) {
+    modal.addEventListener('click', function(event) {
+      if (event.target === modal) {
+        closeIntegranteModal();
+      }
+    });
+  }
+
+  const btnBackPage = document.getElementById('btn-back-page');
+  if (btnBackPage) {
+    btnBackPage.addEventListener('click', goBackPage);
+  }
+});
+
+
+// ==================== GENERACIÓN DE TARJETAS DE LA GRILLA (ORIGINAL INTACTO) ====================
+const grid = document.getElementById('integrantes-grid');
+if (grid) {
+  integrantes.forEach(integrante => {
+    const card = document.createElement('div');
+    card.className = integrante.founder ? 'card founder' : 'card';
+    card.style.cursor = 'pointer';
+
+    if (integrante.founder) {
+      const founderBadge = document.createElement('span');
+      founderBadge.className = 'founder-badge';
+      founderBadge.textContent = 'Fundador';
+      card.appendChild(founderBadge);
+    }
+
+    const img = document.createElement('img');
+    img.src = integrante.img;
+    img.alt = integrante.nombre;
+    img.onerror = function() {
+      this.src = 'img/branding/usuario-sin-foto.svg';
+    };
+    card.appendChild(img);
+
+    const description = document.createElement('div');
+    description.className = 'description';
+    description.innerHTML = `
+      <div class="card-number">ROA #${integrante.num}</div>
+      <h3>${integrante.nombre}</h3>
+      <p>${integrante.real}</p>
+    `;
+    card.appendChild(description);
+
+    card.addEventListener('click', () => openIntegranteModal(integrante));
+    grid.appendChild(card);
+  });
+}
+
+
+// ==================== MOTOR DEL ÁRBOL EN CASCADA HORIZONTAL COMPACTA ====================
+function getPadrinoEfectivo(integrante) {
+  if (!integrante.padrino) return null;
+  const p = integrante.padrino.trim().toUpperCase();
+  if (p === 'CARLONCHO' || p === 'BENITO' || p === 'NINGUNO' || p === '') return null;
+  return integrante.padrino;
+}
+
+function renderPosterTree() {
+  const canvas = document.getElementById('canvas-arbol-lineal');
+  if (!canvas) return;
+  canvas.innerHTML = '';
+
+  const fundadoresReales = ['ULTRA SIETE', 'GAZÚ', 'PERRO DEL HORTELANO', 'GARFIELD'];
+
+  // 1. Renderizar pilares principales
+  fundadoresReales.forEach(nombreTronco => {
+    const col = document.createElement('div');
+    col.className = 'lineage-column';
+
+    const lider = integrantes.find(i => (i.nombre || '').toUpperCase() === nombreTronco.toUpperCase());
+    if (lider) {
+      const linajeCompleto = createTreeBranch(lider);
+      col.appendChild(linajeCompleto);
+    }
+    canvas.appendChild(col);
+  });
+
+  // 2. Renderizar aislados independientes
+  const independientes = integrantes.filter(i => {
+    const padrinoEfectivo = getPadrinoEfectivo(i);
+    const sinPadrino = !padrinoEfectivo;
+    const noEsFundadorReal = !fundadoresReales.includes((i.nombre || '').toUpperCase());
+    return sinPadrino && noEsFundadorReal;
+  });
+
+  if (independientes.length > 0) {
+    const colIndependientes = document.createElement('div');
+    colIndependientes.className = 'lineage-column unconnected-column';
+
+    independientes.forEach(tunoSuelto => {
+      const branchSuelte = createTreeBranch(tunoSuelto);
+      colIndependientes.appendChild(branchSuelte);
+    });
+
+    canvas.appendChild(colIndependientes);
+  }
+
+  const posterFrame = canvas.closest('.poster-frame');
+  const posterHeader = posterFrame ? posterFrame.querySelector('.poster-header') : null;
+  if (posterFrame && posterHeader) {
+    posterHeader.style.width = `${canvas.scrollWidth}px`;
+    posterFrame.scrollLeft = (posterFrame.scrollWidth - posterFrame.clientWidth) / 2;
+  }
+}
+
+function createTreeBranch(tuno) {
+  const group = document.createElement('div');
+  group.className = 'node-group';
+  
+  const nodeHTML = createNodeHTML(tuno);
+  group.appendChild(nodeHTML);
+
+  const nombrePadre = (tuno.nombre || '').toUpperCase();
+  const esExcluido = nombrePadre === 'CARLONCHO' || nombrePadre === 'BENITO';
+
+  const ahijadosDirectos = esExcluido ? [] : integrantes.filter(i => {
+    const pEfectivo = getPadrinoEfectivo(i);
+    return pEfectivo && pEfectivo.trim().toUpperCase() === tuno.nombre.trim().toUpperCase();
+  });
+
+  if (ahijadosDirectos.length > 0) {
+    const childrenContainer = document.createElement('div');
+    childrenContainer.className = 'children-container';
+
+    ahijadosDirectos.forEach(ahijado => {
+      const subBranch = createTreeBranch(ahijado);
+      childrenContainer.appendChild(subBranch);
+    });
+
+    group.appendChild(childrenContainer);
+  }
+
+  return group;
+}
+
+function createNodeHTML(tuno) {
+  const node = document.createElement('div');
+  
+  const fundadoresReales = ['ULTRA SIETE', 'GAZÚ', 'PERRO DEL HORTELANO', 'GARFIELD'];
+  const esFundadorReal = fundadoresReales.includes((tuno.nombre || '').toUpperCase());
+  
+  node.className = esFundadorReal ? 'poster-node is-founder' : 'poster-node';
+  node.setAttribute('role', 'button');
+  node.setAttribute('tabindex', '0');
+  
+  node.innerHTML = `
+    <div class="node-circle">
+      <img src="${tuno.img || 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=80&h=80&fit=crop'}" alt="${tuno.nombre}" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=80&h=80&fit=crop';">
+    </div>
+    <div class="node-ribbon">
+      <span class="node-num">#${tuno.num}</span>
+      <span class="node-name">${tuno.nombre}</span>
+    </div>
+  `;
+  
+  node.addEventListener('click', (e) => {
+    e.stopPropagation();
+    openIntegranteModal(tuno);
+  });
+  return node;
+}
+
+
+// ==================== CONTROL DE ZOOM GLOBAL ====================
+let currentZoom = 1;
+window.adjustZoom = function(value, reset = false) {
+  const canvas = document.getElementById('canvas-arbol-lineal');
+  if (!canvas) return;
+  
+  if (reset) {
+    currentZoom = 1;
+  } else {
+    currentZoom = Math.min(Math.max(currentZoom + value, 0.4), 1.6);
+  }
+  
+  canvas.style.transform = `scale(${currentZoom})`;
+  canvas.style.transformOrigin = 'top center';
+};
+
+
+// ==================== INTERRUPTORES DE VISTA ====================
+function setIntegrantesViewState(isTreeVisible) {
+  const gridSection = document.getElementById('integrantes');
+  const treeSection = document.getElementById('arbol-genealogico');
+  const btnVerArbol = document.getElementById('btn-ver-arbol');
+  const btnBackPage = document.getElementById('btn-back-page');
+
+  if (gridSection) gridSection.style.display = isTreeVisible ? 'none' : 'block';
+  if (treeSection) treeSection.style.display = isTreeVisible ? 'block' : 'none';
+  if (btnVerArbol) btnVerArbol.style.display = isTreeVisible ? 'none' : 'inline-block';
+  if (btnBackPage) btnBackPage.style.display = isTreeVisible ? 'inline-block' : 'none';
+}
+
+function showTreeView() {
+  setIntegrantesViewState(true);
+  renderPosterTree();
+}
+
+function showGridView() {
+  setIntegrantesViewState(false);
+}
+
+function initIntegrantesView() {
+  setIntegrantesViewState(false);
+
+  const btnVerArbol = document.getElementById('btn-ver-arbol');
+
+  if (btnVerArbol) btnVerArbol.onclick = showTreeView;
+}
+
+document.addEventListener('DOMContentLoaded', initIntegrantesView);
+initIntegrantesView();
+  </script>
+</body>
+</html>

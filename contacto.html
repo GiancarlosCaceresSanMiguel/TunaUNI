@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacto | Tuna UNI</title>
+
+  <!-- Estilos -->
+  <script src="js/header.js" defer></script>
+  <link rel="stylesheet" href="css/header.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+  
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==================== HEADER IMAGE ==================== */
+    .header-image {
+      width: min(1180px, calc(100% - 2rem));
+      min-height: 110px;
+      margin: 1rem auto 0;
+      padding: 0.8rem 1rem;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      border-radius: 18px;
+      box-shadow: 0 10px 18px rgba(84, 16, 16, 0.18);
+    }
+
+    .header-image h1 {
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      margin: 0;
+      font-weight: 700;
+    }
+
+    /* ==================== CONTACT SECTION ==================== */
+    .contact-section {
+      padding: 2rem 1rem 1.5rem;
+      display: flex;
+      justify-content: center;
+      background: linear-gradient(135deg, #f7f6f6 0%, #f3f0f1 100%);
+    }
+
+    .contact-container {
+      display: grid;
+      grid-template-columns: 300px 1fr 380px;
+      max-width: 1200px;
+      width: 100%;
+      gap: 0;
+      background: rgba(255,255,255,0.9);
+      border-radius: 24px;
+      box-shadow: 0 12px 28px rgba(17, 17, 17, 0.08);
+      overflow: hidden;
+      border: 1px solid rgba(133, 1, 1, 0.05);
+    }
+
+    .contact-info,
+    .contact-map,
+    .contact-form-wrapper {
+      padding: 1.6rem 1.5rem;
+    }
+
+    /* ==================== INFORMACIÓN ==================== */
+    .contact-info {
+      background: linear-gradient(180deg, #fff9f0 0%, #f7f1f2 100%);
+      color: var(--text-dark);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 0.45rem;
+      border-right: 1px solid rgba(133, 1, 1, 0.08);
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+
+    .contact-info-title,
+    .contact-form-wrapper h2,
+    .social-title {
+      margin: 0 0 0.8rem;
+      font-size: 1.7rem;
+      color: var(--primary-color);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      font-family: 'Playfair Display', serif;
+      line-height: 1.2;
+    }
+
+    .social-title {
+      margin-top: 0.3rem;
+      margin-bottom: 0.55rem;
+    }
+
+    .info-item {
+      display: flex;
+      gap: 0.7rem;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(133, 1, 1, 0.08);
+      border-radius: 12px;
+      padding: 0.56rem 0.7rem;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.4);
+    }
+
+    .info-item .icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(133, 1, 1, 0.08);
+      color: var(--primary-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+      box-shadow: inset 0 0 0 1px rgba(133, 1, 1, 0.06);
+    }
+
+    .info-item h4 {
+      font-size: 0.96rem;
+      margin: 0 0 0.1rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      letter-spacing: 0.02rem;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .info-item p,
+    .info-item a {
+      font-size: 0.8rem;
+      margin: 0;
+      color: var(--text-dark);
+      line-height: 1.35;
+      font-weight: 500;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .info-item a {
+      text-decoration: none;
+      transition: opacity 0.2s ease;
+    }
+
+    .info-item a:hover {
+      opacity: 0.8;
+    }
+
+    .social-rail {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.7rem;
+      margin-top: 0.8rem;
+      padding-top: 0.5rem;
+      border-top: 1px solid rgba(133, 1, 1, 0.08);
+    }
+
+    .social-mini {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      box-shadow: 0 8px 18px rgba(17, 17, 17, 0.08);
+    }
+
+    .social-mini:hover {
+      transform: translateY(-2px);
+    }
+
+    .social-mini.facebook {
+      background: #1877F2;
+      color: #fff;
+    }
+
+    .social-mini.instagram {
+      background: linear-gradient(135deg, #f58529 0%, #dd2a7b 40%, #8134af 70%, #515bd4 100%);
+      color: #fff;
+    }
+
+    .social-mini svg {
+      width: 19px;
+      height: 19px;
+      display: block;
+    }
+
+    /* ==================== MAPA ==================== */
+    .contact-map {
+      padding: 0;
+      overflow: hidden;
+      min-height: 320px;
+      background: #f5f5f5;
+    }
+
+    .contact-map iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 320px;
+      border: none;
+      display: block;
+      filter: grayscale(0.1) contrast(1.05);
+    }
+
+    /* ==================== FORMULARIO ==================== */
+    .contact-form-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: linear-gradient(180deg, #ffffff 0%, #fffaf5 100%);
+    }
+
+    .contact-form-wrapper h2 {
+      font-size: 1.7rem;
+      color: var(--primary-color);
+      margin: 0 0 1rem;
+      font-weight: 700;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-group label {
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 0.38rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 0.8rem 0.9rem;
+      border: 1.5px solid var(--border-color);
+      border-radius: 12px;
+      background: var(--bg-white);
+      font-size: 0.92rem;
+      font-family: 'Roboto', sans-serif;
+      color: var(--text-dark);
+      transition: var(--transition);
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 4px rgba(133, 1, 1, 0.08);
+    }
+
+    .contact-form textarea {
+      resize: vertical;
+      min-height: 110px;
+    }
+
+    .form-error {
+      border-color: #e74c3c !important;
+    }
+
+    .error-message {
+      color: #e74c3c;
+      font-size: 0.8rem;
+      margin-top: 0.3rem;
+      display: none;
+    }
+
+    .error-message.show {
+      display: block;
+    }
+
+    .contact-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8rem;
+      margin-top: 0.5rem;
+    }
+
+    .contact-form button,
+    .btn-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      padding: 0.9rem 1.1rem;
+      border: none;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 700;
+      transition: var(--transition);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      text-decoration: none;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .contact-form button {
+      background: var(--primary-color);
+      color: white;
+    }
+
+    .contact-form button:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .contact-form button:active {
+      transform: translateY(0);
+    }
+
+    .btn-whatsapp {
+      background: #25D366;
+      color: white;
+      box-shadow: 0 10px 18px rgba(37, 211, 102, 0.2);
+    }
+
+    .btn-whatsapp:hover {
+      background: #20ba5a;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 22px rgba(37, 211, 102, 0.28);
+    }
+
+    .btn-whatsapp svg {
+      width: 18px;
+      height: 18px;
+      display: block;
+      flex-shrink: 0;
+    }
+
+    .success-message {
+      background: #2ecc71;
+      color: white;
+      padding: 1rem;
+      border-radius: var(--radius-md);
+      margin-bottom: 1rem;
+      display: none;
+    }
+
+    .success-message.show {
+      display: block;
+      animation: slideInDown 0.3s ease;
+    }
+
+    @keyframes slideInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ==================== RESPONSIVE ==================== */
+    @media (max-width: 1024px) {
+      .contact-container {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-info,
+      .contact-map,
+      .contact-form-wrapper {
+        padding: 2.5rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-image h1 {
+        font-size: 1.8rem;
+      }
+
+      .contact-info,
+      .contact-map,
+      .contact-form-wrapper {
+        padding: 2rem 1.5rem;
+      }
+
+      .contact-map iframe {
+        min-height: 300px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .contact-info {
+        gap: 2rem;
+      }
+
+      .contact-actions {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header cargado desde archivo -->
+  <div class="header-placeholder"></div>
+
+  <!-- Header Image -->
+  <div class="header-image">
+    <h1>Contáctanos</h1>
+  </div>
+
+  <!-- Sección de contacto -->
+  <section class="contact-section">
+    <div class="contact-container">
+
+      <!-- Información de contacto -->
+      <div class="contact-info">
+        <div class="contact-info-title">Información del contacto</div>
+        <div class="info-item">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.86 19.86 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.6 2.64a2 2 0 0 1-.45 2.11L8 9.91a16 16 0 0 0 6.09 6.09l1.44-1.26a2 2 0 0 1 2.11-.45c.86.27 1.74.48 2.64.6A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div>
+            <h4>WhatsApp</h4>
+            <a href="https://wa.me/51972048192" target="_blank" rel="noopener">+51 972048192</a>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v14H4z"/><path d="M4 7l8 6 8-6"/></svg>
+          </div>
+          <div>
+            <h4>Correo</h4>
+            <a href="mailto:tunaingenieria@uni.edu.pe">tunaingenieria@uni.edu.pe</a>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6-4.35-9-9A5.74 5.74 0 0 1 12 5.64 5.74 5.74 0 0 1 21 12c-3 4.65-9 9-9 9z"/><circle cx="12" cy="12" r="2.5"/></svg>
+          </div>
+          <div>
+            <h4>Ubicación</h4>
+            <p>Av. Túpac Amaru 210, Rímac<br>Campus UNI — Lima, Perú</p>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          </div>
+          <div>
+            <h4>Horario</h4>
+            <p>Lun - Vie: 10am - 8pm</p>
+          </div>
+        </div>
+
+        <div class="social-title">Nuestras redes</div>
+        <div class="social-rail" aria-label="Redes sociales de la Tuna UNI">
+          <a class="social-mini facebook" href="https://www.facebook.com/tunaingenieria" target="_blank" rel="noopener" aria-label="Facebook" title="tunaingenieria">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3h-3.1V7.8c0-.9.3-1.5 1.6-1.5H17V3.2c-.3 0-1.3-.2-2.5-.2-2.5 0-4.2 1.5-4.2 4.4V11H8v3h2.3v8h3.2z"/></svg>
+          </a>
+          <a class="social-mini instagram" href="https://www.instagram.com/tunaingenieriauni/" target="_blank" rel="noopener" aria-label="Instagram" title="tunaingenieriauni">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Mapa -->
+      <div class="contact-map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3900.616478812169!2d-77.0484059!3d-12.0238022!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105cf230af7b5e7%3A0x43ae74b7b59a27a0!2sUniversidad%20Nacional%20de%20Ingenier%C3%ADa!5e0!3m2!1ses-419!2spe!4v1712436120000" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+
+      <!-- Formulario -->
+      <div class="contact-form-wrapper">
+        <h2>Envíanos un Mensaje</h2>
+        
+        <div class="success-message" id="success-message">
+          ✓ ¡Mensaje enviado exitosamente! Nos pondremos en contacto pronto.
+        </div>
+
+        <form class="contact-form" id="contact-form" novalidate>
+          <div class="form-group">
+            <label for="name">Nombre Completo *</label>
+            <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+            <div class="error-message" id="name-error">Por favor ingresa tu nombre</div>
+          </div>
+
+          <div class="form-group">
+            <label for="subject">Asunto *</label>
+            <input type="text" id="subject" name="subject" placeholder="Asunto del mensaje" required>
+            <div class="error-message" id="subject-error">Por favor ingresa un asunto</div>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Mensaje *</label>
+            <textarea id="message" name="message" placeholder="Cuéntanos tu mensaje..." required></textarea>
+            <div class="error-message" id="message-error">Por favor ingresa un mensaje</div>
+          </div>
+
+          <div class="contact-actions">
+            <button type="button" id="whatsapp-submit" class="btn-whatsapp">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M20.52 3.48A11.78 11.78 0 0 0 12.06 0C5.48 0 .12 5.34.12 11.9c0 2.1.55 4.14 1.58 5.94L0 24l6.38-1.67A11.93 11.93 0 0 0 12.08 24c6.58 0 11.94-5.36 11.94-11.94 0-3.2-1.24-6.2-3.5-8.58ZM12.09 21.8a9.82 9.82 0 0 1-5-1.36l-.36-.21-3.78.99 1.01-3.68-.24-.38a9.86 9.86 0 0 1-1.51-5.23 9.85 9.85 0 1 1 17.22 6.96 9.8 9.8 0 0 1-8.94 3.9Zm5.52-7.34c-.3-.15-1.75-.87-2.02-.97-.27-.1-.46-.15-.66.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.16-1.27-.47-2.42-1.5-.9-.8-1.5-1.8-1.68-2.1-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.38-.02-.53-.07-.15-.66-1.6-.9-2.2-.23-.6-.47-.5-.66-.5h-.56c-.2 0-.52.08-.8.38-.27.3-1.04 1.01-1.04 2.46s1.06 2.85 1.22 3.05c.15.2 2.1 3.2 5.08 4.49.71.31 1.27.48 1.7.62.71.23 1.36.2 1.87.12.57-.08 1.75-.72 2-1.41.25-.7.25-1.29.18-1.41-.07-.12-.27-.2-.57-.35Z"/></svg>
+              Enviar por WhatsApp
+            </button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p style="margin-bottom: 0.5rem;">&copy; 2025 Tuna de la UNI</p>
+      <p style="font-size: 0.9rem; color: var(--accent-gold);">Tradición, Alegría y Música Universitaria</p>
+    </div>
+  </footer>
+
+  <script>
+    const form = document.getElementById('contact-form');
+    const successMessage = document.getElementById('success-message');
+    const whatsappSubmit = document.getElementById('whatsapp-submit');
+
+    const getFormValues = () => {
+      return {
+        name: document.getElementById('name').value.trim(),
+        subject: document.getElementById('subject').value.trim(),
+        message: document.getElementById('message').value.trim()
+      };
+    };
+
+    const buildMessage = ({ name, subject, message }) => {
+      return [
+        'Hola Tuna UNI,',
+        '',
+        'Datos del contacto:',
+        `- Nombre: ${name}`,
+        `- Asunto: ${subject}`,
+        '',
+        'Mensaje:',
+        message
+      ].join('\n');
+    };
+
+    const buildLinks = () => {
+      const { name, subject, message } = getFormValues();
+      const formattedMessage = buildMessage({ name, subject, message });
+      const whatsappLinkUrl = `https://wa.me/51972048192?text=${encodeURIComponent(formattedMessage)}`;
+      return { whatsappLinkUrl };
+    };
+
+    // Validaciones
+    const validations = {
+      name: (value) => value.trim().length > 0,
+      subject: (value) => value.trim().length > 0,
+      message: (value) => value.trim().length > 10
+    };
+
+    const validateField = (fieldId) => {
+      const field = document.getElementById(fieldId);
+      const errorElement = document.getElementById(`${fieldId}-error`);
+      const isValid = validations[fieldId](field.value);
+
+      if (!isValid) {
+        field.classList.add('form-error');
+        errorElement.classList.add('show');
+      } else {
+        field.classList.remove('form-error');
+        errorElement.classList.remove('show');
+      }
+
+      return isValid;
+    };
+
+    Object.keys(validations).forEach(fieldId => {
+      const field = document.getElementById(fieldId);
+      field.addEventListener('blur', () => validateField(fieldId));
+      field.addEventListener('input', () => validateField(fieldId));
+    });
+
+    const openWhatsAppMessage = () => {
+      const isFormValid = Object.keys(validations).every(fieldId => validateField(fieldId));
+      if (!isFormValid) return;
+
+      const { whatsappLinkUrl } = buildLinks();
+      successMessage.classList.add('show');
+      form.reset();
+
+      setTimeout(() => {
+        successMessage.classList.remove('show');
+      }, 3000);
+
+      window.open(whatsappLinkUrl, '_blank', 'noopener,noreferrer');
+    };
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      openWhatsAppMessage();
+    });
+
+    if (whatsappSubmit) {
+      whatsappSubmit.addEventListener('click', openWhatsAppMessage);
+    }
+  </script>
+</body>
+
+</html>
