@@ -674,55 +674,55 @@ body {
   <script>
     // Directorio oficial de integrantes de la Tuna UNI sincronizado con el Excel
     const integrantes = [
-      { num: 1, nombre: 'ULTRA SIETE', real: 'César Elias Rondón Arnao', carrera: 'Ingeniería Química', nacimiento: '08 de julio de 1974', ascenso: '08 de julio de 1974', padrino: 'LOCUAZ', img: 'img/branding/usuario-sin-foto.svg', founder: true },
-      { num: 2, nombre: 'GAZÚ', real: 'Marco Alberto Rodríguez Paz', carrera: 'Ingeniería Civil', nacimiento: '02 de enero', ascenso: '02 de enero', padrino: 'MELMAC', img: 'img/integrantes/2-Gazu.jpg', founder: true },
-      { num: 3, nombre: 'PERRO DEL HORTELANO', real: 'Jose Antonio Bellido Delgado', carrera: 'Ingeniería Civil', nacimiento: '03 de septiembre de 1975', ascenso: '03 de septiembre de 1975', padrino: 'CARLONCHO', img: 'img/integrantes/3-Perro del Hortelano.jpg', founder: true },
-      { num: 4, nombre: 'GARFIELD', real: 'Juan Carlos Navarro Portugal', carrera: 'Ingeniería Civil', nacimiento: '23 de febrero de 1977', ascenso: '23 de febrero de 1977', padrino: 'ARRIGO', img: 'img/integrantes/4-Garfield.jpg', founder: true },
-      { num: 5, nombre: 'CHARLY', real: 'Carlos Alejandro Gonzales Chávez', carrera: 'Física', nacimiento: '26 de mayo', ascenso: '26 de mayo', padrino: 'PERRO DEL HORTELANO', img: 'img/integrantes/5-Charly.jpg' },
-      { num: 6, nombre: 'CARLONCHO', real: 'Carlos Oliva Guevara', carrera: 'Ingeniería Mecánica', nacimiento: '29 de junio de 1969', ascenso: '29 de junio de 1969', padrino: null, img: 'img/integrantes/6-Carloncho.jpg'},
-      { num: 7, nombre: 'THERAFLÚ', real: 'Andrés Aníbal Preciado Elorriaga', carrera: 'Ingeniería de Petróleo', nacimiento: '26 de junio 1974', ascenso: '26 de junio 1974', padrino: 'PERRO DEL HORTELANO', img: 'img/integrantes/7-Theraflu.jpg' },
-      { num: 8, nombre: 'LOBITO', real: 'René Gustavo Galdós Paz', carrera: 'Ingeniería Química', nacimiento: '04 de Dicembre de 1976', ascenso: '04 de Dicembre de 1976', padrino: 'ULTRA SIETE', img: 'img/integrantes/8-Lobito.jpg' },
-      { num: 9, nombre: 'CHICHI', real: 'José Antonio Gómez Zegarra', carrera: 'Ingeniería Petroquímica', nacimiento: '11 de septiembre de 1977', ascenso: '11 de septiembre de 1977', padrino: 'GARFIELD', img: 'img/integrantes/9-Chichi.jpg' },
-      { num: 10, nombre: 'LOCO', real: 'Julio Enrique Alarcón Alvarado', carrera: 'Ingeniería Física e Ing. Geológica', nacimiento: '2 de diciembre de 1979', ascenso: '2 de diciembre de 1979', padrino: 'GAZÚ', img: 'img/integrantes/10-Loco.jpg' },
-      { num: 11, nombre: 'HUEVO DURO', real: 'Carlos Alberto Daga Ramón', carrera: 'Ingeniería Civil', nacimiento: '19 de Agosto de 1980', ascenso: '19 de Agosto de 1980', padrino: 'PERRO DEL HORTELANO', img: 'img/integrantes/11-Huevo Duro.jpg' },
-      { num: 12, nombre: 'CHUNCHO', real: 'Paul Eduardo Carpio Vicuña', carrera: 'Ingeniería Petroquímica', nacimiento: '08 de Octubre de 1978', ascenso: '08 de Octubre de 1978', padrino: 'CHARLY', img: 'img/integrantes/12-Chuncho.jpg' },
-      { num: 13, nombre: 'MUKI', real: 'Jesús Isaias García Aranda', carrera: 'Ingeniería Mecánica', nacimiento: '07 de Agosto de 1980', ascenso: '07 de Agosto de 1980', padrino: 'CHUNCHO', img: 'img/integrantes/13-Muki.jpg' },
-      { num: 14, nombre: 'SIROCOTOPO', real: 'Roberto Carlos Samaniego Salcedo', carrera: 'Ingeniería Estadística', nacimiento: '21 de Mayo de 1979', ascenso: '21 de Mayo de 1979', padrino: 'HUEVO DURO', img: 'img/integrantes/14-Sirocotopo.jpg' },
-      { num: 15, nombre: 'PSYDUCK', real: 'Juan Francisco Silva Vera', carrera: 'Ingeniería Mecatrónica', nacimiento: '22 de diciembre de 1981', ascenso: '22 de diciembre de 1981', padrino: 'LOBITO', img: 'img/branding/usuario-sin-foto.svg' },
-      { num: 16, nombre: 'RAMITRO', real: 'Ramiro Guillermo Castro Ochoa', carrera: 'Ingeniería Civil', nacimiento: '19 de septiembre de 1981', ascenso: '19 de septiembre de 1981', padrino: 'GARFIELD', img: 'img/branding/usuario-sin-foto.svg' },
-      { num: 17, nombre: 'FRANKY', real: 'Ricardo Werner Yauri Cedeño', carrera: 'Ingeniería Civil', nacimiento: '16 de noviembre de 1984', ascenso: '16 de noviembre de 1984', padrino: 'MUKI', img: 'img/integrantes/17-Franky.jpg' },
-      { num: 18, nombre: 'DENDÉ', real: 'Carlos Alberto Layseca García', carrera: 'Ingeniería Química', nacimiento: '31 de agosto de 1980', ascenso: '31 de agosto de 1980', padrino: 'CHUNCHO', img: 'img/integrantes/18-Dende.jpg' },
-      { num: 19, nombre: 'GALGO', real: 'Oswaldo Javier Nanfuñay Lora', carrera: 'Ingenieria Mecánica Eléctrica', nacimiento: '17 de septiembre de 1982', ascenso: '17 de septiembre de 1982', padrino: 'CHUNCHO', img: 'img/integrantes/19-Galgo.jpg' },
-      { num: 20, nombre: 'PENDIENTE', real: 'Jaime Ernesto Cuba Condori', carrera: 'Ingeniería Química', nacimiento: '21 de febrero de 1984', ascenso: '21 de febrero de 1984', padrino: 'HUEVO DURO', img: 'img/integrantes/20-Pendiente.jpg' },
-      { num: 21, nombre: 'CARTY', real: 'David José Guzmán Flores', carrera: 'Ingeniería Química', nacimiento: '10 de abril de 1987', ascenso: '10 de abril de 1987', padrino: 'MUKI', img: 'img/integrantes/21-Carty.jpg' },
-      { num: 22, nombre: 'YON YON', real: 'Jhon Freddy Vargas Reyes', carrera: 'Ingeniería Electrónica', nacimiento: '6 de agosto', ascenso: '6 de agosto', padrino: 'CHUNCHO', img: 'img/integrantes/22-Yon Yon.jpg' },
-      { num: 23, nombre: 'CHORRI', real: 'Peter Harry Halire Yucra', carrera: 'Ingeniería Mecánica', nacimiento: '15 de marzo de 1985', ascenso: '15 de marzo de 1985', padrino: 'HUEVO DURO', img: 'img/integrantes/23-Chorry.jpg' },
-      { num: 24, nombre: 'SAJINO', real: 'Yuri Karol Max Páucar Aguirre', carrera: 'Matemática', nacimiento: '26 de mayo de 1986', ascenso: '26 de mayo de 1986', padrino: 'CHUNCHO', img: 'img/branding/usuario-sin-foto.svg' },
-      { num: 25, nombre: 'PATO', real: 'Patricio Jesús Alarcón Delgado', carrera: 'Ingeniería Metalúrgica', nacimiento: '21 de enero de 1989', ascenso: '21 de enero de 1989', padrino: 'MUKI', img: 'img/integrantes/25-Pato.jpg' },
-      { num: 26, nombre: 'ILUSO', real: 'David Christian Caqui Alfaro', carrera: 'Ingeniería Civil', nacimiento: '21 de julio (Sin mencion)', ascenso: '21 de julio (Sin mencion)', padrino: 'CHUNCHO', img: 'img/integrantes/26-Iluso.jpg' },
-      { num: 27, nombre: 'PARCHÍS', real: 'Daniel Eduardo Luque Cuestas', carrera: 'Ingeniería Económica', nacimiento: '29 de octubre de 1987', ascenso: '29 de octubre de 1987', padrino: 'LOBITO', img: 'img/integrantes/27-Parchis.jpg' },
-      { num: 28, nombre: 'COQUETA', real: 'Rafael Anderson Vargas Sotomayor', carrera: 'Ingeniería Económica', nacimiento: '1 de mayo', ascenso: '1 de mayo', padrino: 'CHUNCHO', img: 'img/integrantes/28-Coqueta.jpg' },
-      { num: 29, nombre: 'FASHION', real: 'Francisco José Nuñez Mateo', carrera: 'Ingeniería Naval', nacimiento: '19 de junio de 1990', ascenso: '19 de junio de 1990', padrino: 'CHORRI', img: 'img/integrantes/29-Fashion.jpg' },
-      { num: 30, nombre: 'TAO PAI PAI', real: 'Edison Calle Anchayhua', carrera: 'Ingeniería Mecatrónica', nacimiento: '07 de diciembre', ascenso: '07 de diciembre', padrino: 'PARCHÍS', img: 'img/integrantes/30-Tao Pai Pai.jpg' },
-      { num: 31, nombre: 'BENITO', real: 'Luis Ivinson Ochoa Simón', carrera: 'Ingeniería Civil', nacimiento: '21 de diciembre de 1992', ascenso: '21 de diciembre de 1992', padrino: null, img: 'img/integrantes/31-Benito.jpg' },
-      { num: 32, nombre: 'LADILLO', real: 'Miguel Ángel Martín Vadillo Castro-Torres', carrera: 'Ingeniería de Sistemas', nacimiento: '05 de marzo de 1989', ascenso: '05 de marzo de 1989', padrino: 'PERRO DEL HORTELANO', img: 'img/integrantes/32-Ladillo.jpg' },
-      { num: 33, nombre: 'CARPINCHO', real: 'George Dick De la Cruz Rivera', carrera: 'Ingeniería de Petróleo', nacimiento: '14 de agosto 1985', ascenso: '14 de agosto 1985', padrino: 'COQUETA', img: 'img/branding/usuario-sin-foto.svg' },
-      { num: 34, nombre: 'ZOMBIE', real: 'Martín Stevie La Hermoza Jaimes', carrera: 'Arquitectura', nacimiento: '08 de enero de 1994', ascenso: '08 de enero de 1994', padrino: 'PARCHÍS', img: 'img/integrantes/34-Zombie.jpg' },
-      { num: 35, nombre: 'PIROTÉCNICO', real: 'Antony Arturo Quispe Alarcón', carrera: 'Ingeniería Mecánica Eléctrica', nacimiento: '23 de diciembre de 1990', ascenso: '23 de diciembre de 1990', padrino: 'PARCHÍS', img: 'img/integrantes/35-Pirotecnico.jpg' },
-      { num: 36, nombre: 'CHIMOLTRUFIO', real: 'Edward Bryan Luján Contreras', carrera: 'Ingeniería Metalúrgica', nacimiento: '26 de noviembre de 1993', ascenso: '26 de noviembre de 1993', padrino: 'CARPINCHO', img: 'img/integrantes/36-Chimoltrufio.jpg' },
-      { num: 37, nombre: 'JUAN SOLO', real: 'Juan Anthony Albornoz Soto', carrera: 'Ingenieria Civil', nacimiento: '15 de julio', ascenso: '15 de julio', padrino: 'ZOMBIE', img: 'img/integrantes/37-Juan Solo.jpg' },
-      { num: 38, nombre: 'MINION', real: 'Ciro Soto Pardo', carrera: 'Ingenieria Electronica', nacimiento: '15 de abril de 1997', ascenso: '15 de abril de 1997', padrino: 'JUAN SOLO', img: 'img/integrantes/38-Minion.jpg' },
-      { num: 39, nombre: 'SOLDADO', real: 'Brayner Willy Robles Rodríguez', carrera: 'Ingenieria Civil', nacimiento: '24 de julio de 2000', ascenso: '24 de julio de 2000', padrino: 'PATO', img: 'img/integrantes/39-Soldado.jpg' },
-      { num: 40, nombre: 'CAUSHITA', real: 'Héctor Antonio Ventura Espíritu', carrera: 'Ingenieria Ambiental', nacimiento: '19 de octubre de 2001', ascenso: '19 de octubre de 2001', padrino: 'CARPINCHO', img: 'img/integrantes/40-Caushita.jpg' },
-      { num: 41, nombre: 'CELO', real: 'Juan Sebastian Tello León', carrera: 'Matemática', nacimiento: '20 de diciembre de 1999', ascenso: '20 de diciembre de 1999', padrino: 'CARPINCHO', img: 'img/integrantes/41-Celo.jpg' },
-      { num: 42, nombre: 'MEDIO MUERTO', real: 'Joaquín Ignacio García Castillo', carrera: 'Física', nacimiento: '13 de octubre de 1999', ascenso: '13 de octubre de 1999', padrino: 'COQUETA', img: 'img/integrantes/42-Medio Muerto.jpg' },
-      { num: 43, nombre: 'MECHACO', real: 'David Sotelo Astiyaure', carrera: 'Ingeniería de Telecomunicaciones', nacimiento: '28 de noviembre de 1999', ascenso: '28 de noviembre de 1999', padrino: 'LADILLO', img: 'img/branding/usuario-sin-foto.svg' },
-      { num: 44, font: 'CORAJE', nombre: 'CORAJE', real: 'Andrew Owin Inga Rojas', carrera: 'Ciencias de la comp.', nacimiento: '26 de octubre', ascenso: '26 de octubre', padrino: 'MINION', img: 'img/branding/usuario-sin-foto.svg' },
-      { num: 45, nombre: 'MILHOUSE', real: 'Luis Sebastián Ponce Gamboa', carrera: 'Física', nacimiento: '2 de Julio de 2003', ascenso: '2 de Julio de 2003', padrino: 'MINION', img: 'img/branding/usuario-sin-foto.svg' },
-      { num: 46, nombre: 'SHUN DE ANDRÓMEDA', real: 'Jósef André Quilca Castañeda', carrera: 'Ing. Civil', nacimiento: '04 de septiembre del 2003', ascenso: '04 de septiembre del 2003', padrino: 'JUAN SOLO', img: 'img/branding/usuario-sin-foto.svg' },
-      { num: 47, nombre: 'JHON SNOW', real: 'Daniel Adolfo Cabello Vizarres', carrera: 'Física', nacimiento: '21 de Julio de 2006', ascenso: '21 de Julio de 2006', padrino: 'CORAJE', img: 'img/branding/usuario-sin-foto.svg' },
-      { num: 48, nombre: 'LOTSO', real: 'Sebastián Octavio Figueroa Ruedas', carrera: 'Ing. Física', nacimiento: 'Sin mención', ascenso: 'Sin mención', padrino: 'ILUSO', img: 'img/integrantes/48-Lotso.jpg' },
-      { num: 49, nombre: 'BOOMERANG', real: 'Luis Benito Miranda Hazaña', carrera: 'Ing. Civil', nacimiento: '4 de Julio de 2001', ascenso: '4 de Julio de 2001', padrino: 'CHICHI', img: 'img/branding/usuario-sin-foto.svg' }
+      { num: 1, nombre: 'ULTRA SIETE', real: 'César Elias Rondón Arnao', carrera: 'Ingeniería Química', nacimiento: '08 de julio de 1974', ascenso: '19 de julio de 1997', padrino: 'LOCUAZ', img: 'img/branding/usuario-sin-foto.svg', posicionFoto: '50% 50%', founder: true },
+      { num: 2, nombre: 'GAZÚ', real: 'Marco Alberto Rodríguez Paz', carrera: 'Ingeniería Civil', nacimiento: '02 de enero', ascenso: '19 de julio de 1997', padrino: 'MELMAC', img: 'img/integrantes/2-Gazu.jpg', posicionFoto: '75% 25%', founder: true },
+      { num: 3, nombre: 'PERRO DEL HORTELANO', real: 'Jose Antonio Bellido Delgado', carrera: 'Ingeniería Civil', nacimiento: '03 de septiembre de 1975', ascenso: '19 de julio de 1997', padrino: 'CARLONCHO', img: 'img/integrantes/3-Perro del Hortelano.jpg', posicionFoto: '50% 50%', founder: true },
+      { num: 4, nombre: 'GARFIELD', real: 'Juan Carlos Navarro Portugal', carrera: 'Ingeniería Civil', nacimiento: '23 de febrero de 1977', ascenso: '19 de julio de 1997', padrino: 'ARRIGO', img: 'img/integrantes/4-Garfield.jpg', posicionFoto: '75% 25%', founder: true },
+      { num: 5, nombre: 'CHARLY', real: 'Carlos Alejandro Gonzales Chávez', carrera: 'Física', nacimiento: '26 de mayo', ascenso: '9 de noviembre de 1997', padrino: 'PERRO DEL HORTELANO', img: 'img/integrantes/5-Charly.jpg', posicionFoto: '50% 50%' },
+      { num: 6, nombre: 'CARLONCHO', real: 'Carlos Oliva Guevara', carrera: 'Ingeniería Mecánica', nacimiento: '29 de junio de 1969', ascenso: '30 de agosto de 1998', padrino: null, img: 'img/integrantes/6-Carloncho.jpg', posicionFoto: '75% 25%'},
+      { num: 7, nombre: 'THERAFLÚ', real: 'Andrés Aníbal Preciado Elorriaga', carrera: 'Ingeniería de Petróleo', nacimiento: '26 de junio 1974', ascenso: '26 de septiembre de 1998', padrino: 'PERRO DEL HORTELANO', img: 'img/integrantes/7-Theraflu.jpg', posicionFoto: '50% 50%' },
+      { num: 8, nombre: 'LOBITO', real: 'René Gustavo Galdós Paz', carrera: 'Ingeniería Química', nacimiento: '04 de Dicembre de 1976', ascenso: '27 de junio de 1999', padrino: 'ULTRA SIETE', img: 'img/integrantes/8-Lobito.jpg', posicionFoto: '60% 40%' },
+      { num: 9, nombre: 'CHICHI', real: 'José Antonio Gómez Zegarra', carrera: 'Ingeniería Petroquímica', nacimiento: '11 de septiembre de 1977', ascenso: '27 de junio de 1999', padrino: 'GARFIELD', img: 'img/integrantes/9-Chichi.jpg', posicionFoto: '50% 50%' },
+      { num: 10, nombre: 'LOCO', real: 'Julio Enrique Alarcón Alvarado', carrera: 'Ingeniería Física e Ing. Geológica', nacimiento: '2 de diciembre de 1979', ascenso: '26 de junio de 2000', padrino: 'GAZÚ', img: 'img/integrantes/10-Loco.jpg', posicionFoto: '50% 50%' },
+      { num: 11, nombre: 'HUEVO DURO', real: 'Carlos Alberto Daga Ramón', carrera: 'Ingeniería Civil', nacimiento: '19 de Agosto de 1980', ascenso: '18 de noviembre de 2000', padrino: 'PERRO DEL HORTELANO', img: 'img/integrantes/11-Huevo Duro.jpg', posicionFoto: '50% 50%' },
+      { num: 12, nombre: 'CHUNCHO', real: 'Paul Eduardo Carpio Vicuña', carrera: 'Ingeniería Petroquímica', nacimiento: '08 de Octubre de 1978', ascenso: '18 de noviembre de 2000', padrino: 'CHARLY', img: 'img/integrantes/12-Chuncho.jpg', posicionFoto: '60% 40%' },
+      { num: 13, nombre: 'MUKI', real: 'Jesús Isaias García Aranda', carrera: 'Ingeniería Mecánica', nacimiento: '07 de Agosto de 1980', ascenso: '30 de marzo de 2002', padrino: 'CHUNCHO', img: 'img/integrantes/13-Muki.jpg', posicionFoto: '50% 50%' },
+      { num: 14, nombre: 'SIROCOTOPO', real: 'Roberto Carlos Samaniego Salcedo', carrera: 'Ingeniería Estadística', nacimiento: '21 de Mayo de 1979', ascenso: '15 de febrero de 2003', padrino: 'HUEVO DURO', img: 'img/integrantes/14-Sirocotopo.jpg', posicionFoto: '30% 70%' },
+      { num: 15, nombre: 'PSYDUCK', real: 'Juan Francisco Silva Vera', carrera: 'Ingeniería Mecatrónica', nacimiento: '22 de diciembre de 1981', ascenso: '12 de diciembre de 2003', padrino: 'LOBITO', img: 'img/branding/usuario-sin-foto.svg', posicionFoto: '50% 50%' },
+      { num: 16, nombre: 'RAMITRO', real: 'Ramiro Guillermo Castro Ochoa', carrera: 'Ingeniería Civil', nacimiento: '19 de septiembre de 1981', ascenso: '29 de diciembre de 2004', padrino: 'GARFIELD', img: 'img/branding/usuario-sin-foto.svg', posicionFoto: '50% 50%' },
+      { num: 17, nombre: 'FRANKY', real: 'Ricardo Werner Yauri Cedeño', carrera: 'Ingeniería Civil', nacimiento: '16 de noviembre de 1984', ascenso: '29 de diciembre de 2004', padrino: 'MUKI', img: 'img/integrantes/17-Franky.jpg', posicionFoto: '80% 20%' },
+      { num: 18, nombre: 'DENDÉ', real: 'Carlos Alberto Layseca García', carrera: 'Ingeniería Química', nacimiento: '31 de agosto de 1980', ascenso: '29 de diciembre de 2004', padrino: 'CHUNCHO', img: 'img/integrantes/18-Dende.jpg', posicionFoto: '100% 0%' },
+      { num: 19, nombre: 'GALGO', real: 'Oswaldo Javier Nanfuñay Lora', carrera: 'Ingenieria Mecánica Eléctrica', nacimiento: '17 de septiembre de 1982', ascenso: '9 de diciembre de 2006', padrino: 'CHUNCHO', img: 'img/integrantes/19-Galgo.jpg', posicionFoto: '50% 50%' },
+      { num: 20, nombre: 'PENDIENTE', real: 'Jaime Ernesto Cuba Condori', carrera: 'Ingeniería Química', nacimiento: '21 de febrero de 1984', ascenso: '7 de diciembre de 2007', padrino: 'HUEVO DURO', img: 'img/integrantes/20-Pendiente.jpg', posicionFoto: '50% 50%' },
+      { num: 21, nombre: 'CARTY', real: 'David José Guzmán Flores', carrera: 'Ingeniería Química', nacimiento: '10 de abril de 1987', ascenso: '14 de agosto de 2008', padrino: 'MUKI', img: 'img/integrantes/21-Carty.jpg', posicionFoto: '70% 30%' },
+      { num: 22, nombre: 'YON YON', real: 'Jhon Freddy Vargas Reyes', carrera: 'Ingeniería Electrónica', nacimiento: '6 de agosto', ascenso: '8 de mayo de 2009', padrino: 'CHUNCHO', img: 'img/integrantes/22-Yon Yon.jpg', posicionFoto: '50% 50%' },
+      { num: 23, nombre: 'CHORRI', real: 'Peter Harry Halire Yucra', carrera: 'Ingeniería Mecánica', nacimiento: '15 de marzo de 1985', ascenso: '9 de abril de 2010', padrino: 'HUEVO DURO', img: 'img/integrantes/23-Chorry.jpg', posicionFoto: '40% 60%' },
+      { num: 24, nombre: 'SAJINO', real: 'Yuri Karol Max Páucar Aguirre', carrera: 'Matemática', nacimiento: '26 de mayo de 1986', ascenso: '7 de agosto de 2011', padrino: 'CHUNCHO', img: 'img/branding/usuario-sin-foto.svg', posicionFoto: '50% 50%' },
+      { num: 25, nombre: 'PATO', real: 'Patricio Jesús Alarcón Delgado', carrera: 'Ingeniería Metalúrgica', nacimiento: '21 de enero de 1989', ascenso: '7 de agosto de 2011', padrino: 'MUKI', img: 'img/integrantes/25-Pato.jpg', posicionFoto: '50% 50%' },
+      { num: 26, nombre: 'ILUSO', real: 'David Christian Caqui Alfaro', carrera: 'Ingeniería Civil', nacimiento: '21 de julio (Sin mencion)', ascenso: '11 de noviembre de 2011', padrino: 'CHUNCHO', img: 'img/integrantes/26-Iluso.jpg', posicionFoto: '50% 50%' },
+      { num: 27, nombre: 'PARCHÍS', real: 'Daniel Eduardo Luque Cuestas', carrera: 'Ingeniería Económica', nacimiento: '29 de octubre de 1987', ascenso: '11 de noviembre de 2011', padrino: 'LOBITO', img: 'img/integrantes/27-Parchis.jpg', posicionFoto: '80% 20%' },
+      { num: 28, nombre: 'COQUETA', real: 'Rafael Anderson Vargas Sotomayor', carrera: 'Ingeniería Económica', nacimiento: '1 de mayo', ascenso: '11 de noviembre de 2011', padrino: 'CHUNCHO', img: 'img/integrantes/28-Coqueta.jpg', posicionFoto: '90% 10%' },
+      { num: 29, nombre: 'FASHION', real: 'Francisco José Nuñez Mateo', carrera: 'Ingeniería Naval', nacimiento: '19 de junio de 1990', ascenso: '1 de diciembre de 2012', padrino: 'CHORRI', img: 'img/integrantes/29-Fashion.jpg', posicionFoto: '90% 10%' },
+      { num: 30, nombre: 'TAO PAI PAI', real: 'Edison Calle Anchayhua', carrera: 'Ingeniería Mecatrónica', nacimiento: '07 de diciembre', ascenso: '9 de abril de 2013', padrino: 'PARCHÍS', img: 'img/integrantes/30-Tao Pai Pai.jpg', posicionFoto: '90% 10%' },
+      { num: 31, nombre: 'BENITO', real: 'Luis Ivinson Ochoa Simón', carrera: 'Ingeniería Civil', nacimiento: '21 de diciembre de 1992', ascenso: '19 de julio de 2014', padrino: 'KAMLU', img: 'img/integrantes/31-Benito.jpg', posicionFoto: '80% 20%' },
+      { num: 32, nombre: 'LADILLO', real: 'Miguel Ángel Martín Vadillo Castro-Torres', carrera: 'Ingeniería de Sistemas', nacimiento: '05 de marzo de 1989', ascenso: '27 de junio de 2016', padrino: 'PERRO DEL HORTELANO', img: 'img/integrantes/32-Ladillo.jpg', posicionFoto: '50% 50%' },
+      { num: 33, nombre: 'CARPINCHO', real: 'George Dick De la Cruz Rivera', carrera: 'Ingeniería de Petróleo', nacimiento: '14 de agosto 1985', ascenso: '28 de junio de 2016', padrino: 'COQUETA', img: 'img/branding/usuario-sin-foto.svg', posicionFoto: '50% 50%' },
+      { num: 34, nombre: 'ZOMBIE', real: 'Martín Stevie La Hermoza Jaimes', carrera: 'Arquitectura', nacimiento: '08 de enero de 1994', ascenso: '29 de junio de 2016', padrino: 'PARCHÍS', img: 'img/integrantes/34-Zombie.jpg', posicionFoto: '90% 10%' },
+      { num: 35, nombre: 'PIROTÉCNICO', real: 'Antony Arturo Quispe Alarcón', carrera: 'Ingeniería Mecánica Eléctrica', nacimiento: '23 de diciembre de 1990', ascenso: '11 de diciembre de 2017', padrino: 'PARCHÍS', img: 'img/integrantes/35-Pirotecnico.jpg', posicionFoto: '50% 50%' },
+      { num: 36, nombre: 'CHIMOLTRUFIO', real: 'Edward Bryan Luján Contreras', carrera: 'Ingeniería Metalúrgica', nacimiento: '26 de noviembre de 1993', ascenso: '11 de diciembre de 2017', padrino: 'CARPINCHO', img: 'img/integrantes/36-Chimoltrufio.jpg', posicionFoto: '50% 50%' },
+      { num: 37, nombre: 'JUAN SOLO', real: 'Juan Anthony Albornoz Soto', carrera: 'Ingenieria Civil', nacimiento: '15 de julio', ascenso: '5 de agosto de 2018', padrino: 'ZOMBIE', img: 'img/integrantes/37-Juan Solo.jpg', posicionFoto: '60% 40%' },
+      { num: 38, nombre: 'MINION', real: 'Ciro Soto Pardo', carrera: 'Ingenieria Electronica', nacimiento: '15 de abril de 1997', ascenso: '1 de diciembre de 2018', padrino: 'JUAN SOLO', img: 'img/integrantes/38-Minion.jpg', posicionFoto: '20% 80%' },
+      { num: 39, nombre: 'SOLDADO', real: 'Brayner Willy Robles Rodríguez', carrera: 'Ingenieria Civil', nacimiento: '24 de julio de 2000', ascenso: '19 de enero de 2020', padrino: 'PATO', img: 'img/integrantes/39-Soldado.jpg', posicionFoto: '50% 50%' },
+      { num: 40, nombre: 'CAUSHITA', real: 'Héctor Antonio Ventura Espíritu', carrera: 'Ingenieria Ambiental', nacimiento: '19 de octubre de 2001', ascenso: '19 de enero de 2020', padrino: 'CARPINCHO', img: 'img/integrantes/40-Caushita.jpg', posicionFoto: '50% 50%' },
+      { num: 41, nombre: 'CELO', real: 'Juan Sebastian Tello León', carrera: 'Matemática', nacimiento: '20 de diciembre de 1999', ascenso: '17 de diciembre de 2022', padrino: 'CARPINCHO', img: 'img/integrantes/41-Celo.jpg', posicionFoto: '80% 20%' },
+      { num: 42, nombre: 'MEDIO MUERTO', real: 'Joaquín Ignacio García Castillo', carrera: 'Física', nacimiento: '13 de octubre de 1999', ascenso: '17 de diciembre de 2022', padrino: 'COQUETA', img: 'img/integrantes/42-Medio Muerto.jpg', posicionFoto: '30% 70%' },
+      { num: 43, nombre: 'MECHACO', real: 'David Sotelo Astiyaure', carrera: 'Ingeniería de Telecomunicaciones', nacimiento: '28 de noviembre de 1999', ascenso: '17 de diciembre de 2022', padrino: 'LADILLO', img: 'img/branding/usuario-sin-foto.svg', posicionFoto: '50% 50%' },
+      { num: 44, font: 'CORAJE', nombre: 'CORAJE', real: 'Andrew Owin Inga Rojas', carrera: 'Ciencias de la comp.', nacimiento: '26 de octubre', ascenso: '26 de octubre de 2024', padrino: 'MINION', img: 'img/branding/usuario-sin-foto.svg', posicionFoto: '50% 50%' },
+      { num: 45, nombre: 'MILHOUSE', real: 'Luis Sebastián Ponce Gamboa', carrera: 'Física', nacimiento: '2 de Julio de 2003', ascenso: '21 de junio de 2025', padrino: 'MINION', img: 'img/branding/usuario-sin-foto.svg', posicionFoto: '50% 50%' },
+      { num: 46, nombre: 'SHUN DE ANDRÓMEDA', real: 'Jósef André Quilca Castañeda', carrera: 'Ing. Civil', nacimiento: '04 de septiembre del 2003', ascenso: '21 de junio de 2025', padrino: 'JUAN SOLO', img: 'img/branding/usuario-sin-foto.svg', posicionFoto: '50% 50%' },
+      { num: 47, nombre: 'JHON SNOW', real: 'Daniel Adolfo Cabello Vizarres', carrera: 'Física', nacimiento: '21 de Julio de 2006', ascenso: '21 de junio de 2025', padrino: 'CORAJE', img: 'img/branding/usuario-sin-foto.svg', posicionFoto: '50% 50%' },
+      { num: 48, nombre: 'LOTSO', real: 'Sebastián Octavio Figueroa Ruedas', carrera: 'Ing. Física', nacimiento: 'Sin mención', ascenso: '21 de junio de 2025', padrino: 'ILUSO', img: 'img/integrantes/48-Lotso.jpg', posicionFoto: '70% 30%' },
+      { num: 49, nombre: 'BOOMERANG', real: 'Luis Benito Miranda Hazaña', carrera: 'Ing. Civil', nacimiento: '4 de Julio de 2001', ascenso: '21 de junio de 2025', padrino: 'CHICHI', img: 'img/branding/usuario-sin-foto.svg', posicionFoto: '50% 50%' }
     ];
 
 // ==================== LÓGICA DE MODALES ====================
@@ -730,11 +730,13 @@ function openIntegranteModal(integrante) {
   const modal = document.getElementById('modal-integrante');
   if (!modal) return;
   
-  document.getElementById('modal-photo').src = integrante.img;
-  document.getElementById('modal-photo').onerror = function() {
+  const modalPhoto = document.getElementById('modal-photo');
+  modalPhoto.src = integrante.img;
+  modalPhoto.style.objectPosition = integrante.posicionFoto;
+  modalPhoto.onerror = function() {
     this.src = 'img/branding/usuario-sin-foto.svg';
   };
-  document.getElementById('modal-photo').onerror = function() {
+  modalPhoto.onerror = function() {
     this.src = 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=300&h=300&fit=crop';
   };
   
@@ -752,7 +754,7 @@ function openIntegranteModal(integrante) {
   const padrinoCampo = document.getElementById('modal-padrino');
   if (padrinoCampo) {
     if (esFundadorReal) {
-      padrinoCampo.textContent = 'Ninguno / Fundador';
+      padrinoCampo.textContent = integrante.padrino || '---';
     } else if (!pEfectivo) {
       padrinoCampo.textContent = 'Ninguno / Línea Independiente';
     } else {
